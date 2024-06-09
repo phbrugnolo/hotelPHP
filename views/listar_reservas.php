@@ -9,7 +9,7 @@ $reservas = $controller->readAll();
 <head>
     <meta charset="UTF-8">
     <title>Lista de Reservas</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <h1>Lista de Reservas</h1>

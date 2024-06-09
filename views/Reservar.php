@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fazer uma Reserva</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <h1>Fazer uma Reserva</h1>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hotel Management</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Bem-vindo ao Sistema de Gerenciamento de Reservas</h1>
