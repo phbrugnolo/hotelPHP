@@ -1,6 +1,0 @@
-RewriteEngine On
-RewriteRule ^reservar$ views/reservar.php [L]
-RewriteRule ^listar_reservas$ views/listar_reservas.php [L]
-RewriteRule ^admin/login$ views/admin/login.php [L]
-RewriteRule ^admin/dashboard$ views/admin/dashboard.php [L]
-RewriteRule ^admin/logout$ controllers/AdminController.php?logout=true [L]
