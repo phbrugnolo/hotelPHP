@@ -8,14 +8,16 @@ class Quarto{
     private float $preco;
     private string $disponibilidade;
     private int $numero_camas;
+    private string $imagem;
 
-    public function __construct($id, $tipo, $descricao, $preco, $disponibilidade, $numero_camas) {
+    public function __construct($id, $tipo, $descricao, $preco, $disponibilidade, $numero_camas, $imagem) {
         $this->id = $id;
         $this->tipo = $tipo;
         $this->descricao = $descricao;
         $this->preco = $preco;
         $this->disponibilidade = $disponibilidade;
         $this->numero_camas = $numero_camas;
+        $this->imagem = $imagem;
     }
 
     public function getId(){
@@ -38,7 +40,7 @@ class Quarto{
         return $this->disponibilidade;
     }
 
-    public function getNumero_camas(){
+    public function getNumeroCamas(){
         return $this->numero_camas;
     }
 
@@ -62,9 +64,18 @@ class Quarto{
         $this->disponibilidade = $disponibilidade;
     }
 
-    public function setNumero_camas($numero_camas){
+    public function setNumeroCamas($numero_camas){
         $this->numero_camas = $numero_camas;
     }
+
+    public function getImagem(){
+        return $this->imagem;
+    }
+
+    public function setImagem($imagem){
+        $this->imagem = $imagem;
+    }
+
 }
 
 ?>
