@@ -1,10 +1,17 @@
 <?php
-    require __DIR__ . "/../config/database.php";
-    require __DIR__ . "/../models/Reserva.php";
-    require __DIR__ . "/../Repository/ReservaRepository.php";
+  session_start();
 
-    $reservaRepository = new ReservaRepository($pdo);
-    $reservas = $reservaRepository->buscarReservas();
+  if (!isset($_SESSION['user_id']) && !isset($_COOKIE['user_id'])) {
+    header('Location: ../views/login.php');
+    exit;
+  }
+
+  require __DIR__ . "/../config/database.php";
+  require __DIR__ . "/../models/Reserva.php";
+  require __DIR__ . "/../repositories/ReservaRepository.php";
+
+  $reservaRepository = new ReservaRepository($pdo);
+  $reservas = $reservaRepository->buscarReservas();
 ?>
 
 <!doctype html>
