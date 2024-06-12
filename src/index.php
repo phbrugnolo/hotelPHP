@@ -46,11 +46,11 @@
                 <?php foreach ($dadosQuartos as $quarto):?>
                     <div class="container-produto">
                         <div class="container-foto">
-                            <img src="<?= $quarto->getImagem() ?>">
+                            <img src="<?= $quarto->imagem ?>">
                         </div>
-                        <p><?= $quarto->getTipo()?></p>
-                        <p><?= $quarto->getDescricao()?></p>
-                        <p><?= $quarto->getPreco() ?></p>
+                        <p><?= $quarto->tipo?></p>
+                        <p><?= $quarto->descricao ?></p>
+                        <p><?= $quarto->preco ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

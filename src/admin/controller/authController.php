@@ -1,7 +1,7 @@
 <?php
 // controllers/AuthController.php
 
-require_once __DIR__ . '/../repositories/AdminRepository.php';
+require __DIR__ . '/../repositories/AdminRepository.php';
 
 class AuthController {
     private $adminRepository;
@@ -14,7 +14,6 @@ class AuthController {
         $admin = $this->adminRepository->findByEmail($email);
 
         if ($admin && password_verify($password, $admin->getSenha())) {
-            session_start();
             $_SESSION['user_id'] = $admin->getId();
             $_SESSION['email'] = $admin->getEmail();
 
@@ -31,8 +30,6 @@ class AuthController {
     }
 
     public function logout() {
-        session_start();
-        session_unset();
         session_destroy();
 
         setcookie('user_id', '', time() - 3600, "/");

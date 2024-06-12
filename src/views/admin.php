@@ -9,9 +9,6 @@
   require __DIR__ . "/../config/database.php";
   require __DIR__ . "/../models/Reserva.php";
   require __DIR__ . "/../repositories/ReservaRepository.php";
-
-  $reservaRepository = new ReservaRepository($pdo);
-  $reservas = $reservaRepository->buscarReservas();
 ?>
 
 <!doctype html>

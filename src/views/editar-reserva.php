@@ -1,9 +1,9 @@
 <?php
     require __DIR__ . "/../config/database.php";
     require __DIR__ . "/../models/Reserva.php";
-    require __DIR__ . "/../Repository/ReservaRepository.php";
+    require __DIR__ . "/../DAO/ReservaDAO.php";
 
-    $reservaRepositorio = new ReservaRepository($pdo);
+    $reservaRepositorio = new ReservaDAO;
 
     if (isset($_POST['editar'])){
         $reserva = new Reserva(
@@ -64,7 +64,7 @@
     <input type="text" id="cliente_id" name="cliente_id" placeholder="Digite o ID do cliente" value="<?= $reserva->getClienteId() ?>" required>
 
     <label for="data_checkin">Data de Check-in</label>
-    <input type="date" id="data_checkin" name="data_checkin" value="<?= $reserva->getDataCheckin() ?>" required>
+    <input type="date" id="data_checkin" name="data_checkin" value="<?= $reserva->checkin ?>" required>
 
     <label for="data_checkout">Data de Check-out</label>
     <input type="date" id="data_checkout" name="data_checkout" value="<?= $reserva->getDataCheckout() ?>" required>

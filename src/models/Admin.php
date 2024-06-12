@@ -1,25 +1,19 @@
 <?php
-class Admin {
-    private $id;
-    private $email;
-    private $senha;
+    class Admin {
+        public function __construct($id, $email, $senha) {
+            $this->id = $id;
+            $this->email = $email;
+            $this->senha = $senha;
+        }
 
-    public function __construct($id, $email, $senha) {
-        $this->id = $id;
-        $this->email = $email;
-        $this->senha = $senha;
-    }
+        public function __get($propriedade)
+        {
+            return $this->$propriedade;
+        }
 
-    public function getId() {
-        return $this->id;
+        public function __set($propriedade, $valor)
+        {
+            $this->$propriedade = $valor;
+        }
     }
-
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getSenha() {
-        return $this->senha;
-    }
-}
 ?>
