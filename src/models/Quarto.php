@@ -18,6 +18,16 @@
         {
             $this->$propriedade = $valor;
         }
+
+        public function getImagemDiretorio(): string
+        {
+            return "img/".$this->imagem;
+        }
+
+        public function getPrecoFormatado():string
+        {
+            return "R$ " . number_format($this->preco, 2);
+        }
     }
 
 ?>

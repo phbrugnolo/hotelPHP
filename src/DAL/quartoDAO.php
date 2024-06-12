@@ -1,14 +1,15 @@
 <?php
-    require_once './database.php';
+    require_once 'Database.php';
+
     class QuartoDao
     {
         public function criar(Quarto $quarto)
         {
             try {
                 $pdo = Database::conectar();
-                $sql = "INSERT INTO quartos (tipo, descricao, preco, disponibilidade) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO quartos (tipo, descricao, preco, disponibilidade, imagem) VALUES (?,?,?,?,?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade]);
+                $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade, $quarto->imagem]);
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
             }
@@ -44,9 +45,9 @@
         {
             try {
                 $pdo = Database::conectar();
-                $sql = "UPDATE quartos SET tipo = ?, descricao = ?, preco = ?, disponibilidade = ? WHERE id = ?";
+                $sql = "UPDATE quartos SET tipo = ?, descricao = ?, preco = ?, disponibilidade = ?, imagem = ? WHERE id = ?";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade, $quarto->id]);
+                $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade, $quarto->imagem, $quarto->id]);
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
             }

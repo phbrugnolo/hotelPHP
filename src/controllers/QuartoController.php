@@ -19,12 +19,13 @@
                     $_POST['tipo'],
                     $_POST['descricao'],
                     $_POST['preco'],
-                    $_POST['disponibilidade']
+                    $_POST['disponibilidade'],
+                    $_POST['imagem']
                 );
                 $this->quartoDao->criar($quarto);
                 header('Location: index.php?controller=quarto&action=list');
             } else {
-                include './src/views/quarto/criarQurto.php';
+                include './views/quarto/create.php';
             }
         }
 
@@ -36,26 +37,27 @@
                     $_POST['tipo'],
                     $_POST['descricao'],
                     $_POST['preco'],
-                    $_POST['disponibilidade']
+                    $_POST['disponibilidade'],
+                    $_POST['imagem']
                 );
                 $this->quartoDao->atualizar($quarto);
                 header('Location: index.php?controller=quarto&action=list');
             } else {
                 $quarto = $this->quartoDao->listarUm($id);
-                include './src/views/quarto/editarQuarto.php';
+                include './views/quarto/edit.php';
             }
         }
 
         public function list()
         {
             $quartos = $this->quartoDao->listarTodos();
-            include '.src/views/quarto/listarQuartos.php';
+            include './views/quarto/list.php';
         }
 
         public function show($id)
         {
             $quarto = $this->quartoDao->listarUm($id);
-            include './src/views/quarto/mostrarQuarto.php';
+            include './views/quarto/show.php';
         }
 
         public function delete($id)
