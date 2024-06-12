@@ -16,34 +16,32 @@
 </head>
 <body>
     <main>
-        <h2>Tipos de Quarto</h2>
+        <h2>Lista de reservas</h2>
         <section class="container-menu">
             <div class="container-menu-titulo">
-                <h3>Opções de Quato</h3>
+                <h3>Reservas concluídas</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
                 <?php foreach ($dadosReservas as $reserva): ?>
-                    <div class="container-itens">
                     <table>
-                            <thead>
-                                <tr>
-                                    <th>Cliente</th>
-                                    <th>Quarto</th>
-                                    <th>Check-in</th>
-                                    <th>Check-out</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><?= $reserva['cliente_id'] ?></td>
-                                    <td><?= $reserva['quarto_id'] ?></td> 
-                                    <td><?= $reserva['data_checkin'] ?></td> 
-                                    <td><?= $reserva['data_checkout'] ?></td> 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Quarto</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?= $reserva['cliente_id'] ?></td>
+                                <td><?= $reserva['quarto_id'] ?></td> 
+                                <td><?= $reserva['data_checkin'] ?></td> 
+                                <td><?= $reserva['data_checkout'] ?></td> 
+                            </tr>
+                        </tbody>
+                    </table>
                 <?php endforeach; ?>
             </div>
         </section>

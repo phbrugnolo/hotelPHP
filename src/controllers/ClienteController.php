@@ -1,6 +1,9 @@
-<?php 
+<?php
     require_once './models/cliente.php';
     require_once './DAL/clienteDao.php';
+    
+
+    //Arrumar os require_once
 
     class ClienteController
     {
@@ -17,7 +20,6 @@
                 $cliente = new Cliente(
                     0, // O ID será gerado pelo banco de dados
                     $_POST['nome'],
-                    $_POST['email'],
                     $_POST['telefone']
                 );
                 $this->clienteDao->criar($cliente);
@@ -33,8 +35,7 @@
                 $cliente = new Cliente(
                     $id,
                     $_POST['nome'],
-                    $_POST['email'],
-                    $_POST['telefone']
+                    $_POST['telefone'],
                 );
                 $this->clienteDao->atualizar($cliente);
                 header('Location: index.php?controller=cliente&action=list');
@@ -64,10 +65,8 @@
 
         public function menu()
         {
-            $dadosclientes = $this->clienteDao->listarTodos();
+            $dadosClientes = $this->clienteDao->listarTodos();
             include './views/cliente/menu.php';
         }
     }
 ?>
-
-

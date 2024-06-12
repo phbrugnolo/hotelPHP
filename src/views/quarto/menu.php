@@ -15,24 +15,31 @@
     <title>Serenatto</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.php">Menu Principal</a>
+            <a href="../src/views/quarto/menu.php">Quartos</a>
+            <a href="../src/views/reserva/menu.php">Reservas</a>
+        </nav>
+    </header>
     <main>
-        <h2>Tipos de Quarto</h2>
+        <h2>Lista de Quartos</h2>
         <section class="container-menu">
             <div class="container-menu-titulo">
-                <h3>Opções de Quato</h3>
+                <h3>Opções de Quarto</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
-                <?php foreach ($dadosQuartos as $quarto): ?>
-                    <div class="container-itens">
-                        <div class="container-foto">
-                            <img src="<?= "../../../img/" . $quarto['imagem'] ?>">
-                        </div>
-                        <p><?= $quarto['tipo'] ?></p>
-                        <p><?= $quarto['descricao'] ?></p>
-                        <p><?= "R$ " . $quarto['preco'] ?></p>
+            <?php foreach ($dadosQuartos as $quarto): ?>
+                <div class="container-itens">
+                    <div class="container-foto">
+                        <img src="<?= "../../../img/" . $quarto['imagem'] ?>">
                     </div>
-                <?php endforeach; ?>
+                    <p><?= $quarto['tipo'] ?></p>
+                    <p><?= $quarto['descricao'] ?></p>
+                    <p><?= "R$ " . number_format($quarto['preco'], 2) ?></p>
+                </div>
+            <?php endforeach; ?>
             </div>
         </section>
     </main>

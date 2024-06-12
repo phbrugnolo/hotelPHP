@@ -102,3 +102,84 @@ h2{
     width: 200px;
 }
 
+.titulo-menu-principal{
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
+    color: #FFFFFF; 
+    font-weight: bold;
+}
+
+.tabelas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.tabelas thead {
+    background-color: #EBC181;
+}
+
+.tabelas thead th {
+    color: #333B1E;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.tabelas tbody tr {
+    background-color: #555;
+}
+
+.tabelas tbody tr:nth-child(odd) {
+    background-color: #666;
+}
+
+.tabelas tbody td {
+    color: #FFF;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabelas tbody tr:hover {
+    background-color: #777;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #EBC181;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #FFF;
+}
+
+header {
+    background-color: #333B1E;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #EBC181;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #FFF;
+}

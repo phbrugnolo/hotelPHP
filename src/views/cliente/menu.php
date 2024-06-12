@@ -15,31 +15,36 @@
     <title>Serenatto</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.php">Menu Principal</a>
+            <a href="../src/views/quarto/menu.php">Quartos</a>
+            <a href="../src/views/reserva/menu.php">Reservas</a>
+        </nav>
+    </header>
     <main>
         <h2>Lista de Clientes</h2>
         <section class="container-menu">
             <div class="container-menu-titulo">
-                <h3>Clientes Ativos</h3>
+                <h3>Clientes já cadastrados</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
                 <?php foreach ($dadosClientes as $cliente): ?>
-                    <div class="container-itens">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Telefone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><?= $cliente['nome'] ?></td>
-                                    <td><?= $cliente['telefone'] ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?= $cliente['nome'] ?></td>
+                                <td><?= $cliente['telefone'] ?></td> 
+                            </tr>
+                        </tbody>
+                    </table>
                 <?php endforeach; ?>
             </div>
         </section>
