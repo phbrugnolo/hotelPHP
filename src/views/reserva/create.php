@@ -1,33 +1,3 @@
-<?php
-    require __DIR__ . "/../config/database.php";
-    require __DIR__ . "/../models/Reserva.php";
-    require __DIR__ . "/../Repository/ReservaRepository.php";
-
-    if (isset($_POST['cadastro'])){
-        $reserva = new Reserva(null,
-            $_POST['quarto_id'],
-            $_POST['cliente_id'],
-            $_POST['data_checkin'],
-            $_POST['data_checkout'],
-            $_POST['status']
-        );
-
-        // if (isset($_FILES['imagem'])){
-        //     $reserva->setImagem(uniqid() . $_FILES['imagem']['name']);
-        //     move_uploaded_file($_FILES['imagem']['tmp_name'], $reserva->getImagemDiretorio());
-        // }
-
-        $reservaRepositorio = new ReservaRepository($pdo);
-        $reservaRepositorio->salvar($reserva);
-
-        header("Location: admin.php");
-
-    }
-
-
-
-?>
-
 <!doctype html>
 <html lang="pt-br">
 <head>

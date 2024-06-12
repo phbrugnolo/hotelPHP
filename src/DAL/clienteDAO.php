@@ -1,8 +1,8 @@
 <?php
 
-    require_once './Database.php';
+    require_once 'Database.php';
 
-    class ClienteDAO
+    class ClienteDao
     {
         public function criar(Cliente $cliente)
         {

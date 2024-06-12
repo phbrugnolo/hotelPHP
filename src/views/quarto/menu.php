@@ -30,7 +30,7 @@
                         </div>
                         <p><?= $quarto['tipo'] ?></p>
                         <p><?= $quarto['descricao'] ?></p>
-                        <p><?= "R$" . $quarto['preco'] ?></p>
+                        <p><?= "R$ " . $quarto['preco'] ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

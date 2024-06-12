@@ -1,6 +1,7 @@
 <?php
+    require_once 'Database.php';
 
-    class ReservaDAO
+    class ReservaDao
     {
         public function criar(Reserva $reserva)
         {

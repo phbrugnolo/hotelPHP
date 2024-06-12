@@ -1,34 +1,3 @@
-<?php
-    require __DIR__ . "/../config/database.php";
-    require __DIR__ . "/../models/Reserva.php";
-    require __DIR__ . "/../DAO/ReservaDAO.php";
-
-    $reservaRepositorio = new ReservaDAO;
-
-    if (isset($_POST['editar'])){
-        $reserva = new Reserva(
-          $_POST['id'], 
-          $_POST['cliente_id'], 
-          $_POST['quarto_id'],
-          $_POST['data_checkin'], 
-          $_POST['data_checkout'],
-          $_POST['status']
-          );
-
-        // if (isset($_FILES['imagem'])){
-        //     $reserva->setImagem(uniqid() . $_FILES['imagem']['name']);
-        //     move_uploaded_file($_FILES['imagem']['tmp_name'], $reserva->getImagemDiretorio());
-        // }
-
-
-        $reservaRepositorio->atualizar($reserva);
-        header("Location: admin.php");
-    }else{
-        $reserva = $reservaRepositorio->buscarReservas($_GET['id']);
-    }
-?>
-
-
 <!doctype html>
 <html lang="pt-br">
 <head>
