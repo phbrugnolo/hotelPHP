@@ -17,14 +17,14 @@
 <body>
     <main>
         <h2>Tipos de Quarto</h2>
-        <section class="container-cafe-manha">
-            <div class="container-cafe-manha-titulo">
+        <section class="container-menu">
+            <div class="container-menu-titulo">
                 <h3>Opções de Quato</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
-            <div class="container-cafe-manha-produtos">
+            <div class="container-menu-itens">
                 <?php foreach ($dadosQuartos as $quarto): ?>
-                    <div class="container-produto">
+                    <div class="container-itens">
                         <div class="container-foto">
                             <img src="<?= "../../../img/" . $quarto['imagem'] ?>">
                         </div>

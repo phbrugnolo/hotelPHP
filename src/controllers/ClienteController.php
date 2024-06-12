@@ -18,8 +18,7 @@
                     0, // O ID será gerado pelo banco de dados
                     $_POST['nome'],
                     $_POST['email'],
-                    $_POST['telefone'],
-                    $_POST['endereco']
+                    $_POST['telefone']
                 );
                 $this->clienteDao->criar($cliente);
                 header('Location: index.php?controller=cliente&action=list');
@@ -35,8 +34,7 @@
                     $id,
                     $_POST['nome'],
                     $_POST['email'],
-                    $_POST['telefone'],
-                    $_POST['endereco']
+                    $_POST['telefone']
                 );
                 $this->clienteDao->atualizar($cliente);
                 header('Location: index.php?controller=cliente&action=list');

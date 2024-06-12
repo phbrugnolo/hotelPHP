@@ -4,9 +4,7 @@
         public function __construct(
             private int $id, 
             private string $nome, 
-            private string $email, 
-            private string $telefone, 
-            private string $endereco)
+            private string $telefone)
         {}
 
         public function __get($propriedade)

@@ -16,26 +16,30 @@
 </head>
 <body>
     <main>
-        <h2>Lista de Clientes</h2>
+        <h2>Tipos de Quarto</h2>
         <section class="container-menu">
             <div class="container-menu-titulo">
-                <h3>Clientes Ativos</h3>
+                <h3>Opções de Quato</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
-                <?php foreach ($dadosClientes as $cliente): ?>
+                <?php foreach ($dadosReservas as $reserva): ?>
                     <div class="container-itens">
-                        <table>
+                    <table>
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Telefone</th>
+                                    <th>Cliente</th>
+                                    <th>Quarto</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><?= $cliente['nome'] ?></td>
-                                    <td><?= $cliente['telefone'] ?></td>
+                                    <td><?= $reserva['cliente_id'] ?></td>
+                                    <td><?= $reserva['quarto_id'] ?></td> 
+                                    <td><?= $reserva['data_checkin'] ?></td> 
+                                    <td><?= $reserva['data_checkout'] ?></td> 
                                 </tr>
                             </tbody>
                         </table>

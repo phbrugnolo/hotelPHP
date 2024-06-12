@@ -8,9 +8,9 @@
         {
             try{
                 $pdo = Database::conectar();
-                $sql = "INSERT INTO clientes (nome, email, telefone, endereco) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO clientes (nome, telefone) VALUES (?,?,?,?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$cliente->nome, $cliente->email, $cliente->telefone, $cliente->endereco]);
+                $statement->execute([$cliente->nome, $cliente->telefone]);
             }catch(PDOException $e){
                 echo 'Erro: ' . $e->getMessage();
             }
@@ -46,9 +46,9 @@
         {
             try{
                 $pdo = Database::conectar();
-                $sql = "UPDATE clientes SET nome = ?, email = ?, telefone = ?, endereco = ? WHERE id = ?";
+                $sql = "UPDATE clientes SET nome = ?, telefone = ?WHERE id = ?";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$cliente->nome, $cliente->email, $cliente->telefone, $cliente->endereco, $cliente->id]);
+                $statement->execute([$cliente->nome, $cliente->telefone, $cliente->id]);
             }catch(PDOException $e){
                 echo 'Erro: ' . $e->getMessage();
             }
