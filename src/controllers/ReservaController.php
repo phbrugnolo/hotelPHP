@@ -1,10 +1,7 @@
 <?php
-    require_once './models/reserva.php';
-    require_once './DAL/reservaDao.php';
+    require_once '../models/reserva.php';
+    require_once '../DAL/reservaDao.php';
     
-
-    //Arrumar os require_once
-
     class ReservaController
     {
         private $reservaDao;

@@ -1,10 +1,7 @@
 <?php
-    require_once './models/cliente.php';
-    require_once './DAL/clienteDao.php';
+    require_once '../models/cliente.php';
+    require_once '../DAL/clienteDao.php';
     
-
-    //Arrumar os require_once
-
     class ClienteController
     {
         private $clienteDao;
