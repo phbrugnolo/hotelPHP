@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="../../../img/icone-serenatto.png" type="image/x-icon">
+    <link rel="icon" href="/img/icone-serenatto.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Serenatto</title>
@@ -36,17 +36,23 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Telefone</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><?= $cliente['nome'] ?></td>
-                                <td><?= $cliente['telefone'] ?></td> 
+                                <td><?= $cliente['telefone'] ?></td>
+                                <td>
+                                    <a href="index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>">Editar</a>
+                                    <a href="index.php?controller=cliente&action=delete&id=<?= $cliente['id'] ?>" onclick="return confirm('Você tem certeza que deseja deletar este cliente?')">Deletar</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 <?php endforeach; ?>
             </div>
+            <a href="index.php?controller=cliente&action=create">Adicionar Cliente</a>
         </section>
     </main>
 </body>

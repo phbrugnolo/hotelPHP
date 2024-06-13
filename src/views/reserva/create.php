@@ -20,41 +20,22 @@
 <main>
     <section class="container-admin-banner">
         <img src="/img/logo-serenatto-horizontal.png" class="logo-admin" alt="logo-serenatto">
-        <h1>Cadastro de Produtos</h1>
-        <img class= "ornaments" src="/img/ornaments-coffee.png" alt="ornaments">
+        <h1>Cadastro de Reservas</h1>
+        <img class= "ornaments" src="../../../img/ornaments.png" alt="ornaments">
     </section>
     <section class="container-form">
         <form method="post" enctype="multipart/form-data">
-
-            <label for="nome">Nome</label>
-            <input name="nome" type="text" id="nome" placeholder="Digite o nome do produto" required>
-            <div class="container-radio">
-                <div>
-                    <label for="cafe">Café</label>
-                    <input type="radio" id="cafe" name="tipo" value="Café" checked>
-                </div>
-                <div>
-                    <label for="almoco">Almoço</label>
-                    <input type="radio" id="almoco" name="tipo" value="Almoço">
-                </div>
-            </div>
-            <label for="descricao">Descrição</label>
-            <input name="descricao" type="text" id="descricao" placeholder="Digite uma descrição" required>
-
-            <label for="preco">Preço</label>
-            <input name="preco" type="text" id="preco" placeholder="Digite uma descrição" required>
-
-            <label for="imagem">Envie uma imagem do produto</label>
-            <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
-
-            <input name="cadastro" type="submit" class="botao-cadastrar" value="Cadastrar produto"/>
+            <label for="cliente_id">Identificador do Cliente</label>
+            <input name="cliente_id" type="text" id="cliente_id" placeholder="Digite o nome do cliente" required>
+            <label for="quarto_id">Identificador do Quarto</label>
+            <input name="quarto_id" type="text" id="quarto_id" placeholder="Digite um quarto" required>
+            <label for="checkin">Data de Checkin</label>
+            <input name="checkin" type="data" id="checkin" required>
+            <label for="checkout">Data de Checkout</label>
+            <input name="checkout" type="data" id="checkout">
+            <input name="cadastro" type="submit" class="botao-cadastrar" value="Cadastrar Reserva"/>
         </form>
-    
     </section>
 </main>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="js/index.js"></script>
 </body>
 </html>

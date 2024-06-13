@@ -1,6 +1,8 @@
 <?php
-    require_once '../models/quarto.php';
-    require_once '../DAL/quartoDao.php';
+    require_once './models/quarto.php';
+    require_once './DAL/quartoDao.php';
+
+
     
     class QuartoController
     {
