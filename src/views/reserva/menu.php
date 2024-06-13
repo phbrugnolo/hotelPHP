@@ -23,38 +23,38 @@
         </nav>
     </header>
     <main>
-        <h2>Lista de reservas</h2>
+        <h2>Lista de Reservas</h2>
         <section class="container-menu">
             <div class="container-menu-titulo">
-                <h3>Reservas concluídas</h3>
+                <h3>Reservas Concluídas</h3>
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
-                <?php foreach ($dadosReservas as $reserva): ?>
-                    <table class="tabelas">
-                        <thead>
-                            <tr>
-                                <th>Cliente</th>
-                                <th>Quarto</th>
-                                <th>Check-in</th>
-                                <th>Check-out</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <table class="tabelas">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Quarto</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($dadosReservas as $reserva): ?>
                             <tr>
                                 <td><?= $reserva['cliente_id'] ?></td>
-                                <td><?= $reserva['quarto_id'] ?></td> 
-                                <td><?= $reserva['data_checkin'] ?></td> 
+                                <td><?= $reserva['quarto_id'] ?></td>
+                                <td><?= $reserva['data_checkin'] ?></td>
                                 <td><?= $reserva['data_checkout'] ?></td>
                                 <td>
-                                    <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $cliente['id'] ?>'">Editar</button>
-                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $cliente['id'] ?>' }">Excluir</button>
-                                </td> 
+                                    <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>'">Editar</button>
+                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $reserva['id'] ?>' }">Excluir</button>
+                                </td>
                             </tr>
-                        </tbody>
-                    </table>
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
             <a class="btn-adicionar" href="index.php?controller=reserva&action=create">Criar Reserva</a>
         </section>
