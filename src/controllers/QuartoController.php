@@ -50,18 +50,6 @@
             }
         }
 
-        public function list()
-        {
-            $quartos = $this->quartoDao->listarTodos();
-            include './views/quarto/list.php';
-        }
-
-        public function show($id)
-        {
-            $quarto = $this->quartoDao->listarUm($id);
-            include './views/quarto/show.php';
-        }
-
         public function delete($id)
         {
             $this->quartoDao->deletar($id);

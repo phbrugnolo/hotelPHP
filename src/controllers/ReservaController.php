@@ -48,17 +48,6 @@
             }
         }
 
-        public function list()
-        {
-            $reservas = $this->reservaDao->listarTodos();
-            include './views/reserva/list.php';
-        }
-
-        public function show($id)
-        {
-            $reserva = $this->reservaDao->listarUm($id);
-            include './views/reserva/show.php';
-        }
 
         public function delete($id)
         {

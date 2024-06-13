@@ -51,13 +51,6 @@
                             $id = $_GET['id'];
                             $quartoController->edit($id);
                             break;
-                        case 'list':
-                            $quartoController->list();
-                            break;
-                        case 'show':
-                            $id = $_GET['id'];
-                            $quartoController->show($id);
-                            break;
                         case 'delete':
                             $id = $_GET['id'];
                             $quartoController->delete($id);
@@ -78,13 +71,6 @@
                             $id = $_GET['id'];
                             $clienteController->edit($id);
                             break;
-                        case 'list':
-                            $clienteController->list();
-                            break;
-                        case 'show':
-                            $id = $_GET['id'];
-                            $clienteController->show($id);
-                            break;
                         case 'delete':
                             $id = $_GET['id'];
                             $clienteController->delete($id);
@@ -103,13 +89,6 @@
                         case 'edit':
                             $id = $_GET['id'];
                             $reservaController->edit($id);
-                            break;
-                        case 'list':
-                            $reservaController->list();
-                            break;
-                        case 'show':
-                            $id = $_GET['id'];
-                            $reservaController->show($id);
                             break;
                         case 'delete':
                             $id = $_GET['id'];
