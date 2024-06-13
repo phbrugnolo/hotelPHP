@@ -1,10 +1,17 @@
 <?php
-require_once './controllers/QuartoController.php';
-require_once './controllers/ClienteController.php';
-require_once './controllers/ReservaController.php';
+    require_once 'controllers/quartoController.php';
+    require_once 'controllers/ClienteController.php';
+    require_once 'controllers/ReservaController.php';
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : null;
-$action = isset($_GET['action']) ? $_GET['action'] : 'menu';
+    session_start();
+
+    if (!isset($_SESSION['admin'])) {
+        header('Location: /src/views/auth/login.php');
+        exit();
+    }
+
+    $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
+    $action = isset($_GET['action']) ? $_GET['action'] : null;
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -29,6 +36,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'menu';
                 <li><a href="index.php?controller=quarto&action=menu">Ver Quartos</a></li>
                 <li><a href="index.php?controller=cliente&action=menu">Ver Clientes</a></li>
                 <li><a href="index.php?controller=reserva&action=menu">Ver Reservas</a></li>
+                <li><a href="/src/controllers/logoutController.php">Logout</a></li>
             </ul>
         <?php else: ?>
             <?php

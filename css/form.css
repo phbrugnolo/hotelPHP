@@ -47,3 +47,36 @@ form input:focus{
     border: 3px solid #EBC181;
     outline: none;
 }
+
+h2.registro {
+    color: #EBC181;
+    font-weight: bold;
+    text-align: center; 
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+h2.registro a {
+    color: #333B1E;
+    text-decoration: none;
+    transition: color 0.3s; 
+}
+
+h2.registro a:hover {
+    color: #EBC181; 
+}
+
+h3.error {
+    color: #FF0000;
+    font-weight: bold; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #FFE6E6;
+    padding: 10px; 
+    border: 2px solid #FF0000;
+    border-radius: 5px;
+    max-width: 75%;
+    margin: 10px auto;
+}
+

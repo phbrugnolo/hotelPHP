@@ -112,8 +112,11 @@ h2{
 
 .tabelas {
     width: 100%;
+    max-width: 800px; /* Define a largura máxima da tabela */
+    margin: 15px auto; /* Centraliza a tabela horizontalmente */
     border-collapse: collapse;
-    margin: 15px 0;
+    border: 1px solid #EBC181; /* Adiciona uma borda ao redor da tabela */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
 }
 
 .tabelas thead {
@@ -123,11 +126,14 @@ h2{
 .tabelas thead th {
     color: #333B1E;
     font-size: 18px;
-    padding: 10px;
+    padding: 15px; /* Aumenta o preenchimento para mais espaço */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    letter-spacing: 1px; /* Aumenta o espaçamento entre letras */
 }
 
 .tabelas tbody tr {
     background-color: #555;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave ao fundo */
 }
 
 .tabelas tbody tr:nth-child(odd) {
@@ -137,14 +143,35 @@ h2{
 .tabelas tbody td {
     color: #FFF;
     font-size: 16px;
-    padding: 10px;
+    padding: 15px; /* Aumenta o preenchimento para mais espaço */
     text-align: center;
+    border-top: 1px solid #EBC181; /* Adiciona uma borda superior */
 }
 
 .tabelas tbody tr:hover {
     background-color: #777;
 }
 
+.tabelas tbody tr:nth-child(odd):hover {
+    background-color: #888; /* Cor diferente ao pairar em linhas ímpares */
+}
+
+header {
+    background-color: #333B1E;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #EBC181;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #FFF;
+}
 
 ul {
     list-style-type: none;
@@ -164,22 +191,5 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #FFF;
-}
-
-header {
-    background-color: #333B1E;
-    padding: 20px 0;
-    text-align: center;
-}
-
-nav a {
-    color: #EBC181;
-    text-decoration: none;
-    font-size: 20px;
-    margin: 0 10px;
-}
-
-nav a:hover {
     color: #FFF;
 }

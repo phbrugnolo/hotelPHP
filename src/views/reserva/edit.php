@@ -21,7 +21,7 @@
   <section class="container-admin-banner">
     <img src="/img/logo-serenatto-horizontal.png" class="logo-admin" alt="logo-serenatto">
     <h1>Editar Reserva</h1>
-    <img class= "ornaments" src="/img/ornaments-coffee.png" alt="ornaments">
+    <img class= "ornaments" src="/img/ornaments.png" alt="ornaments">
   </section>
   <section class="container-form">
   <form method="post" enctype="multipart/form-data">

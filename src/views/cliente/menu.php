@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="/img/icone-serenatto.png" type="image/x-icon">
+    <link rel="icon" href="../../../img/icone-serenatto.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Serenatto</title>
@@ -18,8 +18,8 @@
     <header>
         <nav>
             <a href="index.php">Menu Principal</a>
-            <a href="../src/views/quarto/menu.php">Quartos</a>
-            <a href="../src/views/reserva/menu.php">Reservas</a>
+            <a href="index.php?controller=quarto&action=menu">Quartos</a>
+            <a href="index.php?controller=reserva&action=menu">Reservas</a>
         </nav>
     </header>
     <main>
@@ -31,7 +31,7 @@
             </div>
             <div class="container-menu-itens">
                 <?php foreach ($dadosClientes as $cliente): ?>
-                    <table>
+                    <table class="tabelas">
                         <thead>
                             <tr>
                                 <th>Nome</th>
