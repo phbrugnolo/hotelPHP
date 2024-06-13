@@ -1,0 +1,109 @@
+
+.container-banner {
+    height: 60vh;
+    background-image: url("../img/banner-site.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container-banner h1, .container-banner p {
+    color: #FFFFFF;
+    font-size: 36px;
+    margin: 10px;
+}
+
+.container-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container-menu-titulo {
+    margin-bottom: 10px;
+}
+
+.container-menu-itens {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: solid #EBC181 2px;
+    overflow: hidden;
+    margin: 10px;
+    width: 200px;
+    padding: 10px;
+}
+
+.container-itens img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.container-itens p {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.container-listagem {
+    margin-top: 20px;
+}
+
+.tabelas {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #EBC181;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabelas thead {
+    background-color: #EBC181;
+    color: #333B1E;
+    text-transform: uppercase;
+}
+
+.tabelas th, .tabelas td {
+    padding: 12px;
+    text-align: center;
+}
+
+.tabelas tbody tr {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+}
+
+.tabelas tbody tr:nth-child(odd) {
+    background-color: #666;
+}
+
+.tabelas tbody td {
+    color: #FFF;
+}
+
+.tabelas tbody tr:hover {
+    background-color: #777;
+}
+
+footer {
+    background-color: #333B1E;
+    color: #EBC181;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

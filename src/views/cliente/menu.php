@@ -12,7 +12,7 @@
     <link rel="icon" href="/img/icone-serenatto.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Serenatto</title>
+    <title>Serenatto - Cadastro</title>
 </head>
 <body>
     <header>
@@ -44,15 +44,15 @@
                                 <td><?= $cliente['nome'] ?></td>
                                 <td><?= $cliente['telefone'] ?></td>
                                 <td>
-                                    <a href="index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>">Editar</a>
-                                    <a href="index.php?controller=cliente&action=delete&id=<?= $cliente['id'] ?>" onclick="return confirm('Você tem certeza que deseja deletar este cliente?')">Deletar</a>
+                                    <button class="editar" onclick="location.href='index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>'">Editar</button>
+                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja deletar este cliente?')) { location.href='index.php?controller=cliente&action=delete&id=<?= $cliente['id'] ?>' }">Excluir</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 <?php endforeach; ?>
             </div>
-            <a href="index.php?controller=cliente&action=create">Adicionar Cliente</a>
+            <a class="btn-adicionar" href="index.php?controller=cliente&action=create">Adicionar Cliente</a>
         </section>
     </main>
 </body>

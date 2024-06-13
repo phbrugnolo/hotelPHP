@@ -1,3 +1,4 @@
+
 .logo{
     width: 500px;
 }
@@ -8,27 +9,6 @@ body{
 }
 main{
     height: 100vh;
-}
-
-.container-banner{
-    width: 100%;
-    height: 80%;
-    background-image: url("../img/banner-site.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.container-texto-banner{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 80%;
-    height: 100%;
-}
-
-.container-banner h1,p{
-    color: #FFFFFF;
 }
 
 h2{
@@ -102,13 +82,6 @@ h2{
     width: 200px;
 }
 
-.titulo-menu-principal{
-    text-align: center;
-    font-size: 36px;
-    margin: 20px 0;
-    color: #FFFFFF; 
-    font-weight: bold;
-}
 
 header {
     background-color: #333B1E;
@@ -150,11 +123,11 @@ ul li a:hover {
 
 .tabelas {
     width: 100%;
-    max-width: 800px; /* Define a largura máxima da tabela */
-    margin: 15px auto; /* Centraliza a tabela horizontalmente */
+    max-width: 800px; 
+    margin: 15px auto; 
     border-collapse: collapse;
-    border: 1px solid #EBC181; /* Adiciona uma borda ao redor da tabela */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+    border: 1px solid #EBC181;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .tabelas thead {
@@ -164,14 +137,14 @@ ul li a:hover {
 .tabelas thead th {
     color: #333B1E;
     font-size: 18px;
-    padding: 15px; /* Aumenta o preenchimento para mais espaço */
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
-    letter-spacing: 1px; /* Aumenta o espaçamento entre letras */
+    padding: 15px;
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
 }
 
 .tabelas tbody tr {
     background-color: #555;
-    transition: background-color 0.3s ease; /* Adiciona uma transição suave ao fundo */
+    transition: background-color 0.3s ease; 
 }
 
 .tabelas tbody tr:nth-child(odd) {
@@ -181,9 +154,9 @@ ul li a:hover {
 .tabelas tbody td {
     color: #FFF;
     font-size: 16px;
-    padding: 15px; /* Aumenta o preenchimento para mais espaço */
+    padding: 15px;
     text-align: center;
-    border-top: 1px solid #EBC181; /* Adiciona uma borda superior */
+    border-top: 1px solid #EBC181; 
 }
 
 .tabelas tbody tr:hover {
@@ -191,5 +164,51 @@ ul li a:hover {
 }
 
 .tabelas tbody tr:nth-child(odd):hover {
-    background-color: #888; /* Cor diferente ao pairar em linhas ímpares */
+    background-color: #888;
 }
+
+.editar button{
+    background-color: #3D5A80;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.editar button:hover {
+    background-color: #293241;
+}
+
+.excluir button {
+    background-color: #EE6C4D;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.excluir button:hover {
+    background-color: #F26419;
+}
+.btn-adicionar {
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.adicionar:hover {
+    background-color: #45A049;
+}
+

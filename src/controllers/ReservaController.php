@@ -48,7 +48,6 @@
             }
         }
 
-
         public function delete($id)
         {
             $this->reservaDao->deletar($id);

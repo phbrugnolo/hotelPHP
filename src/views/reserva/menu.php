@@ -38,6 +38,7 @@
                                 <th>Quarto</th>
                                 <th>Check-in</th>
                                 <th>Check-out</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,12 +46,17 @@
                                 <td><?= $reserva['cliente_id'] ?></td>
                                 <td><?= $reserva['quarto_id'] ?></td> 
                                 <td><?= $reserva['data_checkin'] ?></td> 
-                                <td><?= $reserva['data_checkout'] ?></td> 
+                                <td><?= $reserva['data_checkout'] ?></td>
+                                <td>
+                                    <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $cliente['id'] ?>'">Editar</button>
+                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $cliente['id'] ?>' }">Excluir</button>
+                                </td> 
                             </tr>
                         </tbody>
                     </table>
                 <?php endforeach; ?>
             </div>
+            <a class="btn-adicionar" href="index.php?controller=reserva&action=create">Criar Reserva</a>
         </section>
     </main>
 </body>
