@@ -58,14 +58,17 @@
                                 <td><?php echo htmlspecialchars($reserva->getDataCheckinBR()); ?></td>
                                 <td><?php echo htmlspecialchars($reserva->getDataCheckoutBR()); ?></td>
                                 <td>
-                                    <form action="index.php?controller=reserva&action=edit" method="get" style="display:inline;">
+                                    <form action="index.php" method="GET" style="display:inline;">
+                                        <input type="hidden" name="controller" value="reserva">
+                                        <input type="hidden" name="action" value="edit">
                                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($reserva->__get('id')); ?>">
                                         <button class="editar" type="submit">Editar</button>
                                     </form>
-                                    <form action="index.php?controller=reserva&action=delete" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir esta reserva?');">
+                                    <form action="index.php?controller=reserva&action=delete" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir esta reserva?');">
                                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($reserva->__get('id')); ?>">
                                         <button class="excluir" type="submit">Excluir</button>
                                     </form>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>

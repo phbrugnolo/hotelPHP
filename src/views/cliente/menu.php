@@ -48,8 +48,8 @@
                                 <td><?= htmlspecialchars($cliente['cpf']) ?></td>
                                 <td><?= htmlspecialchars($cliente['telefone']) ?></td>
                                 <td>
-                                    <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>'">Editar</button>
-                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $reserva['id'] ?>' }">Excluir</button>
+                                    <button class="editar" onclick="location.href='index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>'">Editar</button>
+                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta cliente?')) { location.href='index.php?controller=cliente&action=delete&id=<?= $cliente['id'] ?>' }">Excluir</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

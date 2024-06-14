@@ -75,4 +75,34 @@ class ReservaDao
             echo 'Erro: ' . $e->getMessage();
         }
     }
+
+    public function clienteExiste($cliente_cpf)
+    {
+        try {
+            $pdo = Database::conectar();
+            $sql = "SELECT COUNT(*) FROM clientes WHERE cpf = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$cliente_cpf]);
+            $count = $statement->fetchColumn();
+            return $count > 0;
+        } catch (PDOException $e) {
+            echo 'Erro ao verificar existência do cliente: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function tipoQuartoExiste($tipo_quarto)
+    {
+        try {
+            $pdo = Database::conectar();
+            $sql = "SELECT COUNT(*) FROM quartos WHERE tipo = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$tipo_quarto]);
+            $count = $statement->fetchColumn();
+            return $count > 0;
+        } catch (PDOException $e) {
+            echo 'Erro ao verificar existência do tipo de quarto: ' . $e->getMessage();
+            return false;
+        }
+    }
 }

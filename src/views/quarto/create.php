@@ -17,13 +17,20 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="index.php">Menu Principal</a>
+            <a href="index.php?controller=cliente&action=menu">Clientes</a>
+            <a href="index.php?controller=reserva&action=menu">Reservas</a>
+        </nav>
+    </header>
     <main>
         <section class="container-admin-banner">
             <h1>Cadastro de Quartos</h1>
             <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
         </section>
         <section class="container-form">
-            <form method="post" enctype="multipart/form-data">
+            <form action="index.php?controller=quarto&action=create" method="post" enctype="multipart/form-data">
                 <?php if (!empty($errors)) : ?>
                     <div class="errors">
                         <ul>

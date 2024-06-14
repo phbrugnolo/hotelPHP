@@ -41,11 +41,11 @@
                     </div>
                 <?php endif; ?>
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($_POST['nome'] ?? '', ENT_QUOTES); ?>">
+                <input type="text" id="nome" name="nome" value="<?php echo isset($_POST['nome']) ? htmlspecialchars($_POST['nome'], ENT_QUOTES) : ''; ?>">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" cpf-mask="999.999.999-99" value="<?php echo htmlspecialchars($_POST['cpf'] ?? '', ENT_QUOTES); ?>">
+                <input type="text" id="cpf" name="cpf" data-mask="999.999.999-99" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf'], ENT_QUOTES) : ''; ?>">
                 <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_POST['telefone'] ?? '', ENT_QUOTES); ?>">
+                <input type="text" id="telefone" data-mask="(00) 0000-0000" name="telefone" value="<?php echo isset($_POST['telefone']) ? htmlspecialchars($_POST['telefone'], ENT_QUOTES) : ''; ?>">
                 <input name="cadastro" type="submit" class="botao-cadastrar" value="Cadastrar Cliente" />
             </form>
         </section>

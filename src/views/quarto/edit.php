@@ -17,13 +17,20 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="index.php">Menu Principal</a>
+            <a href="index.php?controller=cliente&action=menu">Clientes</a>
+            <a href="index.php?controller=reserva&action=menu">Reservas</a>
+        </nav>
+    </header>
     <main>
         <section class="container-admin-banner">
             <h1>Editar Quarto</h1>
-            <img class="ornaments" src="/img/ornaments-coffee.png" alt="ornaments">
+            <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
         </section>
         <section class="container-form">
-            <form action="index.php?controller=reserva&action=edit&id=<?= $cliente['id'] ?>" method="post">
+            <form action="index.php?controller=quarto&action=edit&id=<?= htmlspecialchars($quarto['id']) ?>" method="post" enctype="multipart/form-data">
                 <?php if (!empty($errors)) : ?>
                     <div class="errors">
                         <ul>
@@ -34,16 +41,24 @@
                     </div>
                 <?php endif; ?>
                 <label for="tipo">Tipo</label>
-                <input name="tipo" type="text" id="tipo" value="<?= $quarto['tipo'] ?>" placeholder="Digite o tipo do quarto">
+                <input name="tipo" type="text" id="tipo" value="<?= htmlspecialchars($quarto['tipo']) ?>" placeholder="Digite o tipo do quarto">
 
                 <label for="descricao">Descrição</label>
-                <input name="descricao" type="text" id="descricao" value="<?= $quarto['descricao'] ?>" placeholder="Digite uma descrição">
+                <input name="descricao" type="text" id="descricao" value="<?= htmlspecialchars($quarto['descricao']) ?>" placeholder="Digite uma descrição">
 
                 <label for="preco">Preço</label>
-                <input name="preco" type="text" id="preco" value="<?= $quarto['preco'] ?>" placeholder="Digite um valor">
+                <input name="preco" type="text" id="preco" value="<?= htmlspecialchars($quarto['preco']) ?>" placeholder="Digite um valor">
 
-                <label for="imagem">Envie uma imagem</label>
-                <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
+                <?php if (!empty($imagem)) : ?>
+                    <label>Imagem Atual:</label>
+                    <img src="/img/<?= htmlspecialchars($imagem) ?>" alt="Imagem Atual">
+                    <input type="hidden" name="imagem_atual" value="<?= htmlspecialchars($imagem) ?>">
+                    <br>
+                    <label>Alterar Imagem (opcional):</label>
+                <?php else : ?>
+                    <label for="imagem">Envie uma imagem</label>
+                <?php endif; ?>
+                <input type="file" name="nova_imagem" accept="image/*" id="nova_imagem">
 
                 <input name="editar" type="submit" class="botao-cadastrar" value="Editar Quarto">
             </form>

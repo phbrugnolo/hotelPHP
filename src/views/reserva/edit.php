@@ -21,31 +21,38 @@
         <nav>
             <a href="index.php">Menu Principal</a>
             <a href="index.php?controller=quarto&action=menu">Quartos</a>
-            <a href="index.php?controller=reserva&action=menu">Reservas</a>
+            <a href="index.php?controller=cliente&action=menu">Clientes</a>
         </nav>
     </header>
     <main>
-        <h2>Editar Reserva</h2>
-        <form action="index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>" method="post">
-            <?php if (!empty($errors)) : ?>
-                <div class="errors">
-                    <ul>
-                        <?php foreach ($errors as $error) : ?>
-                            <li><?php echo htmlspecialchars($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-            <label for="cliente_id">Identificador do Cliente</label>
-            <input type="text" id="cliente_id" name="cliente_id" value="<?= $reserva['cliente_id'] ?>" >
-            <label for="quarto_id">Identificador do Quarto</label>
-            <input type="text" id="quarto_id" name="quarto_id" value="<?= $reserva['quarto_id'] ?>" >
-            <label for="data_checkin">Data de Checkin</label>
-            <input type="date" id="data_checkin" name="data_checkin" value="<?= $reserva['data_checkin'] ?>" >
-            <label for="data_checkout">Data de Checkout</label>
-            <input type="date" id="data_checkout" name="data_checkout" value="<?= $reserva['data_checkout'] ?>">
-            <button type="submit">Salvar</button>
-        </form>
+        <section class="container-admin-banner">
+            <h1>Editar Reserva</h1>
+            <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
+        </section>
+        <section class="container-form">
+
+
+            <form action="index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>" method="post">
+                <?php if (!empty($errors)) : ?>
+                    <div class="errors">
+                        <ul>
+                            <?php foreach ($errors as $error) : ?>
+                                <li><?php echo htmlspecialchars($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                <label for="cliente_cpf">Identificador do Cliente</label>
+                <input type="text" id="cliente_cpf" name="cliente_cpf" value="<?= $reserva['cliente_cpf'] ?>">
+                <label for="tipo_quarto">Identificador do Quarto</label>
+                <input type="text" id="tipo_quarto" name="tipo_quarto" value="<?= $reserva['tipo_quarto'] ?>">
+                <label for="data_checkin">Data de Checkin</label>
+                <input type="date" id="data_checkin" name="data_checkin" value="<?= $reserva['data_checkin'] ?>">
+                <label for="data_checkout">Data de Checkout</label>
+                <input type="date" id="data_checkout" name="data_checkout" value="<?= $reserva['data_checkout'] ?>">
+                <input name="editar" type="submit" class="botao-cadastrar" value="Editar Reserva">
+            </form>
+        </section>
     </main>
 </body>
 

@@ -15,7 +15,7 @@ class ReservaController
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($errors)) {
             $cliente_cpf = trim($_POST['cliente_cpf']);
             $tipo_quarto = trim($_POST['tipo_quarto']);
             $data_checkin = $_POST['data_checkin'];
@@ -32,7 +32,7 @@ class ReservaController
                     $data_checkout
                 );
                 $this->reservaDao->criar($reserva);
-                header('Location: index.php?controller=reserva&action=list');
+                header('Location: index.php?controller=reserva&action=menu');
                 exit();
             }
         }
@@ -43,7 +43,7 @@ class ReservaController
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($errors)) {
             $cliente_cpf = trim($_POST['cliente_cpf']);
             $tipo_quarto = trim($_POST['tipo_quarto']);
             $data_checkin = $_POST['data_checkin'];
@@ -60,7 +60,7 @@ class ReservaController
                     $data_checkout
                 );
                 $this->reservaDao->atualizar($reserva);
-                header('Location: index.php?controller=reserva&action=list');
+                header('Location: index.php?controller=reserva&action=menu');
                 exit();
             }
         } else {
@@ -73,7 +73,7 @@ class ReservaController
     public function delete($id)
     {
         $this->reservaDao->deletar($id);
-        header('Location: index.php?controller=reserva&action=list');
+        header('Location: index.php?controller=reserva&action=menu');
     }
 
     public function menu()
@@ -85,15 +85,25 @@ class ReservaController
     private function validate($cliente_cpf, $tipo_quarto, $data_checkin, $data_checkout)
     {
         $errors = [];
-
+    
         if (empty($cliente_cpf)) {
             $errors[] = "O CPF do cliente é obrigatório.";
+        } else {
+            $clienteExists = $this->reservaDao->clienteExiste($cliente_cpf);
+            if (!$clienteExists) {
+                $errors[] = "O CPF do cliente não está cadastrado no sistema.";
+            }
         }
-
+    
         if (empty($tipo_quarto)) {
             $errors[] = "O tipo do quarto é obrigatório.";
+        } else {
+            $tipoQuartoExists = $this->reservaDao->tipoQuartoExiste($tipo_quarto);
+            if (!$tipoQuartoExists) {
+                $errors[] = "O tipo de quarto não está cadastrado no sistema.";
+            }
         }
-
+    
         if (empty($data_checkin)) {
             $errors[] = "A data de check-in é obrigatória.";
         }
@@ -101,8 +111,9 @@ class ReservaController
         if (empty($data_checkout)) {
             $errors[] = "A data de check-out é obrigatória.";
         }
-
+    
         return $errors;
     }
+    
 }
 

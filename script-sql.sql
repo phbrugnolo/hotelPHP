@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS clientes(
 );
 
 INSERT INTO clientes (nome, cpf, telefone) VALUES
-('João Silva', '123.456.789-09', '123456789'),
-('Maria Oliveira', '361.089.200-50', '987654321'),
-('Carlos Santos', '144.467.910-44', '1122334455');
+('João Silva', '123.456.789-09', '(41) 123456789'),
+('Maria Oliveira', '361.089.200-50','(41) 987654321'),
+('Carlos Santos', '144.467.910-44', '(11) 1122334455');
 
 CREATE TABLE IF NOT EXISTS admins(
     id INT AUTO_INCREMENT PRIMARY KEY,

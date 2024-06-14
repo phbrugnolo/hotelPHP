@@ -7,7 +7,7 @@ class QuartoDao
     {
         try {
             $pdo = Database::conectar();
-            $sql = "INSERT INTO quartos (tipo, descricao, preco, imagem) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO quartos (tipo, descricao, preco, imagem) VALUES (?, ?, ?, ?)";
             $statement = $pdo->prepare($sql);
             $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->imagem]);
         } catch (PDOException $e) {

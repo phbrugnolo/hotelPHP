@@ -7,7 +7,7 @@ class ClienteDao
     {
         try {
             $pdo = Database::conectar();
-            $sql = "INSERT INTO clientes (nome, cpf, telefone) VALUES (?,?)";
+            $sql = "INSERT INTO clientes (nome, cpf, telefone) VALUES (?, ?, ?)";
             $statement = $pdo->prepare($sql);
             $statement->execute([$cliente->nome, $cliente->cpf, $cliente->telefone]);
         } catch (PDOException $e) {
@@ -45,7 +45,7 @@ class ClienteDao
     {
         try {
             $pdo = Database::conectar();
-            $sql = "UPDATE clientes SET nome = ?, cpf = ?, telefone = WHERE id = ?";
+            $sql = "UPDATE clientes SET nome = ?, cpf = ?, telefone = ? WHERE id = ?";
             $statement = $pdo->prepare($sql);
             $statement->execute([$cliente->nome, $cliente->cpf, $cliente->telefone, $cliente->id]);
         } catch (PDOException $e) {
