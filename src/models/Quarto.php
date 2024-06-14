@@ -7,7 +7,6 @@ class Quarto
         private string $tipo,
         private string $descricao,
         private float $preco,
-        private string $disponibilidade,
         private string $imagem
     ) {}
 

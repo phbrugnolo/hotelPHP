@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/show.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="img/icone-serenatto.png" type="image/x-icon">
@@ -34,19 +35,23 @@
                 <?php foreach ($dadosQuartos as $quarto) : ?>
                     <div class="container-itens">
                         <div class="container-foto">
-                            <img src="<?= "../../../img/" . $quarto['imagem'] ?>" alt="<?= $quarto['tipo'] ?>">
+                            <img src="<?= htmlspecialchars("../../../img/" . $quarto['imagem']) ?>" alt="<?= htmlspecialchars($quarto['tipo']) ?>">
                         </div>
                         <p><?= htmlspecialchars($quarto['tipo']) ?></p>
                         <p><?= htmlspecialchars($quarto['descricao']) ?></p>
-                        <p><?= "R$ " . number_format($quarto['preco'], 2) ?></p>
+                        <p><?= "R$ " . htmlspecialchars(number_format($quarto['preco'], 2, ',', '.')) ?></p>
                         <div class="actions-container">
-                            <a class="edit" href="index.php?controller=quarto&action=edit&id=<?= $quarto['id'] ?>">Editar</a>
-                            <a class="delete" href="index.php?controller=quarto&action=delete&id=<?= $quarto['id'] ?>" onclick="return confirm('Tem certeza que deseja deletar este quarto?')">Deletar</a>
+                            <a class="edit" href="index.php?controller=quarto&action=edit&id=<?= htmlspecialchars($quarto['id']) ?>">Editar</a>
+                            <a class="delete" href="index.php?controller=quarto&action=delete&id=<?= htmlspecialchars($quarto['id']) ?>" onclick="return confirm('Tem certeza que deseja deletar este quarto?')">Deletar</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
+            <div class="container-adicionar">
+                <a class="btn-adicionar" href="index.php?controller=quarto&action=create">Cadastrar Quarto</a>
+            </div>
         </section>
     </main>
 </body>
+
 </html>

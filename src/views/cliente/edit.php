@@ -26,12 +26,22 @@
     <main>
         <h2>Editar Cliente</h2>
         <form action="index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>" method="post">
+            <?php if (!empty($errors)) : ?>
+                <div class="errors">
+                    <ul>
+                        <?php foreach ($errors as $error) : ?>
+                            <li><?php echo htmlspecialchars($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="<?= $cliente['nome'] ?>" required>
+            <input type="text" id="nome" name="nome" value="<?= $cliente['nome'] ?>">
             <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" value="<?= $cliente['telefone'] ?>" required>
+            <input type="text" id="telefone" name="telefone" value="<?= $cliente['telefone'] ?>">
             <button type="submit">Salvar</button>
         </form>
     </main>
 </body>
+
 </html>

@@ -17,6 +17,13 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="index.php">Menu Principal</a>
+            <a href="index.php?controller=quarto&action=menu">Quartos</a>
+            <a href="index.php?controller=cliente&action=menu">Clientes</a>
+        </nav>
+    </header>
     <main>
         <section class="container-admin-banner">
             <h1>Cadastro de Reservas</h1>
@@ -34,11 +41,11 @@
                     </div>
                 <?php endif; ?>
                 <label for="cliente_cpf">CPF do Cliente</label>
-                <input name="cliente_cpf" type="text" data-mask="999.999.999-99" id="cliente_cpf" placeholder="Digite o identificador do cliente" >
+                <input name="cliente_cpf" type="text" data-mask="999.999.999-99" id="cliente_cpf" placeholder="Digite o identificador do cliente">
                 <label for="tipo_quarto">TIPO do Quarto</label>
-                <input name="tipo_quarto" type="text" id="tipo_quarto" placeholder="Digite o identificador do quarto" >
+                <input name="tipo_quarto" type="text" id="tipo_quarto" placeholder="Digite o identificador do quarto">
                 <label for="data_checkin">Data de Checkin</label>
-                <input name="data_checkin" type="date" id="data_checkin" >
+                <input name="data_checkin" type="date" id="data_checkin">
                 <label for="data_checkout">Data de Checkout</label>
                 <input name="data_checkout" type="date" id="data_checkout">
                 <input name="cadastro" type="submit" class="botao-cadastrar" value="Cadastrar Reserva" />

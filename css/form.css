@@ -1,5 +1,3 @@
-
-
 form{
     display: flex;
     flex-direction: column;
@@ -155,4 +153,36 @@ h2{
 
 .botao-excluir{
     background: crimson;
+}
+
+.errors {
+    background-color: #FFD2D2; 
+    border: 1px solid #FF0000;
+    color: #FF0000; 
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.errors ul {
+    padding: 0;
+    margin: 0;
+}
+
+.errors ul li {
+    list-style-type: none;
+    margin: 5px 0;
+    color: #FF0000;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }

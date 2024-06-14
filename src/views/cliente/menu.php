@@ -44,9 +44,9 @@
                     <tbody>
                         <?php foreach ($dadosClientes as $cliente) : ?>
                             <tr>
-                                <td><?= $cliente['nome'] ?></td>
-                                <td><?= $cliente['cpf'] ?></td>
-                                <td><?= $cliente['telefone'] ?></td>
+                                <td><?= htmlspecialchars($cliente['nome']) ?></td>
+                                <td><?= htmlspecialchars($cliente['cpf']) ?></td>
+                                <td><?= htmlspecialchars($cliente['telefone']) ?></td>
                                 <td>
                                     <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>'">Editar</button>
                                     <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $reserva['id'] ?>' }">Excluir</button>

@@ -46,29 +46,30 @@
                         <?php foreach ($dadosReservas as $reservaData) :
                             $reserva = new Reserva(
                                 $reservaData['id'],
-                                $reservaData['cliente_cpf'],
-                                $reservaData['tipo_quarto'],
+                                htmlspecialchars($reservaData['cliente_cpf']),
+                                htmlspecialchars($reservaData['tipo_quarto']),
                                 $reservaData['data_checkin'],
                                 $reservaData['data_checkout']
                             );
                         ?>
                             <tr>
-                                <td><?php echo $reserva->__get('cliente_cpf'); ?></td>
-                                <td><?php echo $reserva->__get('tipo_quarto'); ?></td>
-                                <td><?php echo $reserva->getDataCheckinBR(); ?></td>
-                                <td><?php echo $reserva->getDataCheckoutBR(); ?></td>
+                                <td><?php echo htmlspecialchars($reserva->__get('cliente_cpf')); ?></td>
+                                <td><?php echo htmlspecialchars($reserva->__get('tipo_quarto')); ?></td>
+                                <td><?php echo htmlspecialchars($reserva->getDataCheckinBR()); ?></td>
+                                <td><?php echo htmlspecialchars($reserva->getDataCheckoutBR()); ?></td>
                                 <td>
                                     <form action="index.php?controller=reserva&action=edit" method="get" style="display:inline;">
-                                        <input type="hidden" name="id" value="<?php echo $reserva->__get('id'); ?>">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($reserva->__get('id')); ?>">
                                         <button class="editar" type="submit">Editar</button>
                                     </form>
                                     <form action="index.php?controller=reserva&action=delete" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir esta reserva?');">
-                                        <input type="hidden" name="id" value="<?php echo $reserva->__get('id'); ?>">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($reserva->__get('id')); ?>">
                                         <button class="excluir" type="submit">Excluir</button>
                                     </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>

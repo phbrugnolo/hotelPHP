@@ -13,6 +13,67 @@ class ClienteController
 
     public function create()
     {
+        $errors = $this->validate();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($errors)) {
+            $nome = trim($_POST['nome']);
+            $cpf = trim($_POST['cpf']);
+            $telefone = trim($_POST['telefone']);
+
+            $cliente = new Cliente(
+                0, // O ID será gerado pelo banco de dados
+                $nome,
+                $cpf,
+                $telefone
+            );
+            $this->clienteDao->criar($cliente);
+            header('Location: index.php?controller=cliente&action=menu');
+            exit();
+        }
+
+        include './views/cliente/create.php';
+    }
+
+
+    public function edit($id)
+    {
+        $errors = $this->validate();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($errors)) {
+            $nome = trim($_POST['nome']);
+            $cpf = trim($_POST['cpf']);
+            $telefone = trim($_POST['telefone']);
+
+            $cliente = new Cliente(
+                $id,
+                $nome,
+                $cpf,
+                $telefone
+            );
+            $this->clienteDao->atualizar($cliente);
+            header('Location: index.php?controller=cliente&action=menu');
+            exit();
+        } else {
+            $cliente = $this->clienteDao->listarUm($id);
+        }
+
+        include './views/cliente/edit.php';
+    }
+
+    public function delete($id)
+    {
+        $this->clienteDao->deletar($id);
+        header('Location: index.php?controller=cliente&action=menu');
+    }
+
+    public function menu()
+    {
+        $dadosClientes = $this->clienteDao->listarTodos();
+        include './views/cliente/menu.php';
+    }
+
+    private function validate()
+    {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,50 +92,8 @@ class ClienteController
             if (empty($telefone)) {
                 $errors[] = "O telefone é obrigatório.";
             }
-
-            if (empty($errors)) {
-                $cliente = new Cliente(
-                    0, // O ID será gerado pelo banco de dados
-                    $nome,
-                    $cpf,
-                    $telefone
-                );
-                $this->clienteDao->criar($cliente);
-                header('Location: index.php?controller=cliente&action=menu');
-                exit();
-            }
-        } else {
-            include './views/cliente/create.php';
         }
-    }
 
-
-    public function edit($id)
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $cliente = new Cliente(
-                $id,
-                $_POST['nome'],
-                $_POST['cpf'],
-                $_POST['telefone']
-            );
-            $this->clienteDao->atualizar($cliente);
-            header('Location: index.php?controller=cliente&action=menu');
-        } else {
-            $cliente = $this->clienteDao->listarUm($id);
-            include './views/cliente/edit.php';
-        }
-    }
-
-    public function delete($id)
-    {
-        $this->clienteDao->deletar($id);
-        header('Location: index.php?controller=cliente&action=menu');
-    }
-
-    public function menu()
-    {
-        $dadosClientes = $this->clienteDao->listarTodos();
-        include './views/cliente/menu.php';
+        return $errors;
     }
 }

@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/show.css">
     <link rel="stylesheet" href="/css/form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +18,13 @@
 
 <body>
     <main>
+        <header>
+            <nav>
+                <a href="index.php">Menu Principal</a>
+                <a href="index.php?controller=quarto&action=menu">Quartos</a>
+                <a href="index.php?controller=reserva&action=menu">Reservas</a>
+            </nav>
+        </header>
         <section class="container-admin-banner">
             <h1>Cadastro de Clientes</h1>
             <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
@@ -48,4 +54,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../../../js/index.js"></script>
 </body>
+
 </html>

@@ -21,21 +21,7 @@ class ReservaController
             $data_checkin = $_POST['data_checkin'];
             $data_checkout = $_POST['data_checkout'];
 
-            if (empty($cliente_cpf)) {
-                $errors[] = "O CPF do cliente é obrigatório.";
-            }
-
-            if (empty($tipo_quarto)) {
-                $errors[] = "O tipo do quarto é obrigatório.";
-            }
-
-            if (empty($data_checkin)) {
-                $errors[] = "A data de check-in é obrigatória.";
-            }
-
-            if (empty($data_checkout)) {
-                $errors[] = "A data de check-out é obrigatória.";
-            }
+            $errors = $this->validate($cliente_cpf, $tipo_quarto, $data_checkin, $data_checkout);
 
             if (empty($errors)) {
                 $reserva = new Reserva(
@@ -47,27 +33,41 @@ class ReservaController
                 );
                 $this->reservaDao->criar($reserva);
                 header('Location: index.php?controller=reserva&action=list');
+                exit();
             }
-        } else {
-            include './views/reserva/create.php';
         }
+        include './views/reserva/create.php';
     }
+
     public function edit($id)
     {
+        $errors = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $reserva = new Reserva(
-                $id,
-                $_POST['cliente_cpf'],
-                $_POST['tipo_quarto'],
-                $_POST['data_checkin'],
-                $_POST['data_checkout']
-            );
-            $this->reservaDao->atualizar($reserva);
-            header('Location: index.php?controller=reserva&action=list');
+            $cliente_cpf = trim($_POST['cliente_cpf']);
+            $tipo_quarto = trim($_POST['tipo_quarto']);
+            $data_checkin = $_POST['data_checkin'];
+            $data_checkout = $_POST['data_checkout'];
+
+            $errors = $this->validate($cliente_cpf, $tipo_quarto, $data_checkin, $data_checkout);
+
+            if (empty($errors)) {
+                $reserva = new Reserva(
+                    $id,
+                    $cliente_cpf,
+                    $tipo_quarto,
+                    $data_checkin,
+                    $data_checkout
+                );
+                $this->reservaDao->atualizar($reserva);
+                header('Location: index.php?controller=reserva&action=list');
+                exit();
+            }
         } else {
             $reserva = $this->reservaDao->listarUm($id);
-            include './views/reserva/edit.php';
         }
+
+        include './views/reserva/edit.php';
     }
 
     public function delete($id)
@@ -81,4 +81,28 @@ class ReservaController
         $dadosReservas = $this->reservaDao->listarTodos();
         include './views/reserva/menu.php';
     }
+
+    private function validate($cliente_cpf, $tipo_quarto, $data_checkin, $data_checkout)
+    {
+        $errors = [];
+
+        if (empty($cliente_cpf)) {
+            $errors[] = "O CPF do cliente é obrigatório.";
+        }
+
+        if (empty($tipo_quarto)) {
+            $errors[] = "O tipo do quarto é obrigatório.";
+        }
+
+        if (empty($data_checkin)) {
+            $errors[] = "A data de check-in é obrigatória.";
+        }
+
+        if (empty($data_checkout)) {
+            $errors[] = "A data de check-out é obrigatória.";
+        }
+
+        return $errors;
+    }
 }
+

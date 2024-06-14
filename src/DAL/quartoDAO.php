@@ -7,9 +7,9 @@ class QuartoDao
     {
         try {
             $pdo = Database::conectar();
-            $sql = "INSERT INTO quartos (tipo, descricao, preco, disponibilidade, imagem) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO quartos (tipo, descricao, preco, imagem) VALUES (?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
-            $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade, $quarto->imagem]);
+            $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->imagem]);
         } catch (PDOException $e) {
             echo 'Erro: ' . $e->getMessage();
         }
@@ -45,9 +45,9 @@ class QuartoDao
     {
         try {
             $pdo = Database::conectar();
-            $sql = "UPDATE quartos SET tipo = ?, descricao = ?, preco = ?, disponibilidade = ?, imagem = ? WHERE id = ?";
+            $sql = "UPDATE quartos SET tipo = ?, descricao = ?, preco = ?, imagem = ? WHERE id = ?";
             $statement = $pdo->prepare($sql);
-            $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->disponibilidade, $quarto->imagem, $quarto->id]);
+            $statement->execute([$quarto->tipo, $quarto->descricao, $quarto->preco, $quarto->imagem, $quarto->id]);
         } catch (PDOException $e) {
             echo 'Erro: ' . $e->getMessage();
         }

@@ -23,18 +23,24 @@
             <img class="ornaments" src="/img/ornaments-coffee.png" alt="ornaments">
         </section>
         <section class="container-form">
-            <form method="post" enctype="multipart/form-data">
+            <form action="index.php?controller=reserva&action=edit&id=<?= $cliente['id'] ?>" method="post">
+                <?php if (!empty($errors)) : ?>
+                    <div class="errors">
+                        <ul>
+                            <?php foreach ($errors as $error) : ?>
+                                <li><?php echo htmlspecialchars($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <label for="tipo">Tipo</label>
-                <input name="tipo" type="text" id="tipo" value="<?= $quarto['tipo'] ?>" placeholder="Digite o tipo do quarto" required>
+                <input name="tipo" type="text" id="tipo" value="<?= $quarto['tipo'] ?>" placeholder="Digite o tipo do quarto">
 
                 <label for="descricao">Descrição</label>
-                <input name="descricao" type="text" id="descricao" value="<?= $quarto['descricao'] ?>" placeholder="Digite uma descrição" required>
+                <input name="descricao" type="text" id="descricao" value="<?= $quarto['descricao'] ?>" placeholder="Digite uma descrição">
 
                 <label for="preco">Preço</label>
-                <input name="preco" type="text" id="preco" value="<?= $quarto['preco'] ?>" placeholder="Digite um valor" required>
-
-                <label for="disponibilidade">Disponibilidade</label>
-                <input name="disponibilidade" type="text" id="disponibilidade" value="<?= $quarto['disponibilidade'] ?>" placeholder="Digite a disponibilidade" required>
+                <input name="preco" type="text" id="preco" value="<?= $quarto['preco'] ?>" placeholder="Digite um valor">
 
                 <label for="imagem">Envie uma imagem</label>
                 <input type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
@@ -47,4 +53,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" integrity="sha512-Rdk63VC+1UYzGSgd3u2iadi0joUrcwX0IWp2rTh6KXFoAmgOjRS99Vynz1lJPT8dLjvo6JZOqpAHJyfCEZ5KoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

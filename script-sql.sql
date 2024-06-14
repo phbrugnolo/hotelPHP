@@ -16,15 +16,14 @@ CREATE TABLE IF NOT EXISTS quartos(
     tipo VARCHAR(50) NOT NULL,
     descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL,
-    disponibilidade BOOLEAN NOT NULL DEFAULT TRUE,
     imagem VARCHAR(255),
     UNIQUE KEY (tipo)  -- Create an index on the 'tipo' column
 );
 
-INSERT INTO quartos (tipo, descricao, preco, disponibilidade, imagem) VALUES
-('Quarto de Luxo', 'Um quarto que oferece um nível elevado de conforto e elegância.', 300.00, TRUE, 'luxury-room.jpg'),
-('Quarto Individual', 'Um quarto destinado a uma pessoa, geralmente com uma cama de solteiro.', 80.00, TRUE, 'single-room.jpg'),
-('Suíte', 'Um conjunto de cômodos que inclui um quarto e uma sala de estar separada.', 250.00, TRUE, 'suite-room.jpg');
+INSERT INTO quartos (tipo, descricao, preco, imagem) VALUES
+('Quarto de Luxo', 'Um quarto que oferece um nível elevado de conforto e elegância.', 300.00, 'luxury-room.jpg'),
+('Quarto Individual', 'Um quarto destinado a uma pessoa, geralmente com uma cama de solteiro.', 80.00, 'single-room.jpg'),
+('Suíte', 'Um conjunto de cômodos que inclui um quarto e uma sala de estar separada.', 250.00, 'suite-room.jpg');
 
 CREATE TABLE IF NOT EXISTS clientes(
     id INT AUTO_INCREMENT PRIMARY KEY,
