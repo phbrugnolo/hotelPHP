@@ -12,7 +12,6 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
-// Função para verificar e exibir o cookie
 function verificarCookie() {
     if (isset($_COOKIE['username'])) {
         echo '<div class="cookie-message">Bem-vindo de volta, ' . htmlspecialchars($_COOKIE['username']) . '!</div>';
@@ -52,7 +51,7 @@ $quartoAleatorio = $pdo->query("SELECT * FROM quartos ORDER BY RAND() LIMIT 1")-
     <title>Serenatto</title>
 </head>
 <body>
-    <?php verificarCookie(); ?> <!-- Adiciona a mensagem de cookie aqui -->
+    <?php verificarCookie(); ?>
     <main>
         <?php if (!$controller): ?>
             <h1 class="titulo-menu-principal">Menu Principal</h1>
@@ -149,5 +148,15 @@ $quartoAleatorio = $pdo->query("SELECT * FROM quartos ORDER BY RAND() LIMIT 1")-
             ?>
         <?php endif; ?>
     </main>
+    <script>
+        window.onload = function() {
+            const cookieMessage = document.querySelector('.cookie-message');
+            if (cookieMessage) {
+                setTimeout(() => {
+                    cookieMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+    </script>
 </body>
 </html>
