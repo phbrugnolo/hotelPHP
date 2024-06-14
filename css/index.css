@@ -113,6 +113,14 @@ header {
     text-align: center;
 }
 
+nav {
+    nav {
+        position: relative;
+        z-index: 1100;
+    }
+    
+}
+
 nav a {
     color: #EBC181;
     text-decoration: none;

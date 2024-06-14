@@ -6,19 +6,19 @@ require_once 'controllers/ClienteController.php';
 require_once 'controllers/ReservaController.php';
 require_once 'DAL/Database.php';
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['admin'])) {
     header('Location: /src/views/auth/login.php');
     exit();
 }
 
 function verificarCookie() {
-    if (isset($_COOKIE['username'])) {
+    if (!isset($_SESSION['admin']) && isset($_COOKIE['username'])) {
         echo '<div class="cookie-message">Bem-vindo de volta, ' . htmlspecialchars($_COOKIE['username']) . '!</div>';
-    } else {
+    } else if (!isset($_SESSION['admin'])) {
         echo '<div class="cookie-message">Bem-vindo, visitante! <a href="/src/views/auth/login.php">Faça login</a></div>';
     }
 }
+
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
 $action = isset($_GET['action']) ? $_GET['action'] : null;
