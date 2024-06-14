@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/index.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/show.css">
   <link rel="stylesheet" href="/css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" href="/img/icone-serenatto.png" type="image/x-icon">
@@ -31,7 +31,7 @@
             <input type="submit" value="Registrar">
         </form>
     </section>
-    <h2 class="registro">Já tem uma conta? <a href="login.php">Login</a></h2>
+    <h2 class="registro">Já possui uma conta? <a href="login.php">Login</a></h2>
     <?php
         if (isset($_GET['error']) && $_GET['error'] == 1) {
             echo '<h3 class="error">O email já está em uso.</h3>';

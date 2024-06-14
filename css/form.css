@@ -80,3 +80,79 @@ h3.error {
     margin: 10px auto;
 }
 
+.container-admin-banner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 80px 0px 20px;
+}
+
+
+
+.container-admin-banner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 80px 0px 20px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+.container-table{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-admin-banner h1{
+    margin-top: 40px;
+    font-size: 30px;
+    color: #EBC181;
+}
+
+.container-lista-produtos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto 0;
+}
+
+.container-lista{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid #EBC181 0.5px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 3px 0;
+}
+
+.container-lista h3{
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.botao-cadastrar{
+    background: #EBC181;
+    color: #333B1E;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    border: none;
+}
+
+
+.botao-editar{
+    background: #9B8357;
+}
+
+.botao-excluir{
+    background: crimson;
+}

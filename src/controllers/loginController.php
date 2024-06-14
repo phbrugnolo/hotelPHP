@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     require_once '../DAL/adminDao.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -7,11 +8,19 @@
         $senha = $_POST['senha'];
         
         $adminDAL = new adminDao();
-        $admin = $adminDAL->getAdminByEmailAndPassword($email, $senha);
-        
-        if ($admin) {
-            $_SESSION['admin'] = $admin;
+        $admin = null;
+
+        try { 
+            $admin = $adminDAL->getAdminByEmail($email);
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+        }
+
+        if (isset($admin) && password_verify($senha, $admin['senha'])) {
+            $_SESSION['admin'] = $admin['email'];
             header('Location: /src/index.php');
+            var_dump($_SESSION['admin']);
+            die();
             exit();
         } else {
             header('Location: /src/views/auth/login.php?error=1');

@@ -22,6 +22,7 @@
                     $_POST['data_checkout'],
                     $_POST['status']
                 );
+                var_dump($_POST);
                 $this->reservaDao->criar($reserva);
                 header('Location: index.php?controller=reserva&action=list');
             } else {

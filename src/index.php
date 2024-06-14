@@ -1,9 +1,9 @@
 <?php
+    session_start();
+
     require_once 'controllers/quartoController.php';
     require_once 'controllers/ClienteController.php';
     require_once 'controllers/ReservaController.php';
-
-    session_start();
 
     if (!isset($_SESSION['admin'])) {
         header('Location: /src/views/auth/login.php');

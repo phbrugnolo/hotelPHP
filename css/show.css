@@ -1,7 +1,7 @@
 
-.logo{
+/* .logo{
     width: 500px;
-}
+} */
 
 body{
     background-color: #333B1E;
@@ -10,15 +10,6 @@ body{
 main{
     height: 100vh;
 }
-
-h2{
-    text-align: center;
-    font-size: 48px;
-    margin: 20px 0px;
-    color: #FFF;
-    font-weight: bold;
-}
-
 
 .container-menu{
     display: flex;
@@ -167,7 +158,7 @@ ul li a:hover {
     background-color: #888;
 }
 
-.editar button{
+.editar {
     background-color: #3D5A80;
     color: #FFF;
     border: none;
@@ -178,11 +169,11 @@ ul li a:hover {
     margin-right: 10px;
 }
 
-.editar button:hover {
+.editar:hover {
     background-color: #293241;
 }
 
-.excluir button {
+.excluir {
     background-color: #EE6C4D;
     color: #FFF;
     border: none;
@@ -192,10 +183,10 @@ ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-.excluir button:hover {
+.excluir:hover {
     background-color: #F26419;
 }
-.btn-adicionar {
+.adicionar {
     background-color: #4CAF50;
     color: #FFF;
     border: none;
@@ -206,9 +197,30 @@ ul li a:hover {
     display: inline-block;
     margin-top: 20px;
     transition: background-color 0.3s ease;
+    max-width: 80px;
 }
 
 .adicionar:hover {
     background-color: #45A049;
 }
 
+.container-adicionar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-adicionar {
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-adicionar:hover {
+    background-color: #45A049;
+}

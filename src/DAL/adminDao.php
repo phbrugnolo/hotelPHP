@@ -5,22 +5,17 @@
     class adminDao
     {
 
-        public function getAdminByEmailAndPassword($email, $senha)
+        public function getAdminByEmail($email)
         {
             try {
                 $pdo = Database::conectar();
                 $stmt = $pdo->prepare('SELECT * FROM admins WHERE email = ?');
                 $stmt->execute([$email]);
                 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Erro: ' . $e->getMessage();
-            }
-
-            if ($admin && password_verify($senha, $admin['senha'])) {
                 return $admin;
+            } catch (PDOException $e) {
+                throw new PDOException("Usuário não encontrado");
             }
-
-            return false;
         }
 
         public function registrarAdmin($email, $senha)

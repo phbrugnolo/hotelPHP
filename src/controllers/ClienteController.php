@@ -13,18 +13,36 @@ class ClienteController
 
     public function create()
     {
+        $errors = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $cliente = new Cliente(
-                0, // O ID será gerado pelo banco de dados
-                $_POST['nome'],
-                $_POST['telefone']
-            );
-            $this->clienteDao->criar($cliente);
-            header('Location: index.php?controller=cliente&action=menu');
-        } else {
-            include './views/cliente/create.php';
+            $nome = trim($_POST['nome']);
+            $telefone = trim($_POST['telefone']);
+
+            if (empty($nome)) {
+                $errors[] = "O nome é obrigatório.";
+            }
+
+            if (empty($telefone)) {
+                $errors[] = "O telefone é obrigatório.";
+            }
+
+            if (empty($errors)) {
+                $cliente = new Cliente(
+                    0, // O ID será gerado pelo banco de dados
+                    $nome,
+                    $telefone
+                );
+                $this->clienteDao->criar($cliente);
+                header('Location: index.php?controller=cliente&action=menu');
+                exit(); // Certifique-se de sair após o redirecionamento
+            }
         }
+
+        // Inclua a view com a lista de erros, se houver
+        include './views/cliente/create.php';
     }
+
 
     public function edit($id)
     {
@@ -54,4 +72,3 @@ class ClienteController
         include './views/cliente/menu.php';
     }
 }
-?>

@@ -4,6 +4,7 @@
         public function __construct(
             private int $id, 
             private string $nome, 
+            private string $cpf,
             private string $telefone)
         {}
 

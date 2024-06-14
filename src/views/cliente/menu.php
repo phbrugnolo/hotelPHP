@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/show.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="/img/icone-serenatto.png" type="image/x-icon">
@@ -14,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Serenatto - Cadastro</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -30,29 +32,33 @@
                 <img class="ornaments" src="../../../img/ornaments.png" alt="ornaments">
             </div>
             <div class="container-menu-itens">
-                <?php foreach ($dadosClientes as $cliente): ?>
-                    <table class="tabelas">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Telefone</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <table class="tabelas">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($dadosClientes as $cliente) : ?>
                             <tr>
                                 <td><?= $cliente['nome'] ?></td>
+                                <td><?= $cliente['cpf'] ?></td>
                                 <td><?= $cliente['telefone'] ?></td>
                                 <td>
-                                    <button class="editar" onclick="location.href='index.php?controller=cliente&action=edit&id=<?= $cliente['id'] ?>'">Editar</button>
-                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja deletar este cliente?')) { location.href='index.php?controller=cliente&action=delete&id=<?= $cliente['id'] ?>' }">Excluir</button>
+                                    <button class="editar" onclick="location.href='index.php?controller=reserva&action=edit&id=<?= $reserva['id'] ?>'">Editar</button>
+                                    <button class="excluir" onclick="if (confirm('Você tem certeza que deseja excluir esta reserva?')) { location.href='index.php?controller=reserva&action=delete&id=<?= $reserva['id'] ?>' }">Excluir</button>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
-            <a class="btn-adicionar" href="index.php?controller=cliente&action=create">Adicionar Cliente</a>
+            <div class="container-adicionar">
+                <a class="btn-adicionar" href="index.php?controller=cliente&action=create">Adicionar Cliente</a>
+            </div>
         </section>
     </main>
 </body>
