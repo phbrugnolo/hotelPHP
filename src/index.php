@@ -11,6 +11,12 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
+if (isset($_COOKIE['username'])) {
+    echo "Bem-vindo de volta, " . htmlspecialchars($_COOKIE['username']) . "!";
+} else {
+    echo "Bem-vindo, visitante!";
+}
+
 $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
