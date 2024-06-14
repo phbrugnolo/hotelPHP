@@ -266,3 +266,29 @@ ul li a:hover {
     max-width: 400px;
     text-align: center;
 }
+
+.cookie-message {
+    background-color: #EBC181;
+    color: #333B1E; 
+    text-align: center; 
+    padding: 15px; 
+    font-size: 18px;
+    font-weight: bold; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.cookie-message a {
+    color: #333B1E; 
+    text-decoration: underline;
+    margin-left: 10px; 
+}
+
+.cookie-message a:hover {
+    color: #FFF; 
+    text-decoration: none; 
+}

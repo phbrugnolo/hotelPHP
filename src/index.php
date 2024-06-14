@@ -6,15 +6,19 @@ require_once 'controllers/ClienteController.php';
 require_once 'controllers/ReservaController.php';
 require_once 'DAL/Database.php';
 
+// Verifica se o usuário está logado
 if (!isset($_SESSION['admin'])) {
     header('Location: /src/views/auth/login.php');
     exit();
 }
 
-if (isset($_COOKIE['username'])) {
-    echo "Bem-vindo de volta, " . htmlspecialchars($_COOKIE['username']) . "!";
-} else {
-    echo "Bem-vindo, visitante!";
+// Função para verificar e exibir o cookie
+function verificarCookie() {
+    if (isset($_COOKIE['username'])) {
+        echo '<div class="cookie-message">Bem-vindo de volta, ' . htmlspecialchars($_COOKIE['username']) . '!</div>';
+    } else {
+        echo '<div class="cookie-message">Bem-vindo, visitante! <a href="/src/views/auth/login.php">Faça login</a></div>';
+    }
 }
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
@@ -48,6 +52,7 @@ $quartoAleatorio = $pdo->query("SELECT * FROM quartos ORDER BY RAND() LIMIT 1")-
     <title>Serenatto</title>
 </head>
 <body>
+    <?php verificarCookie(); ?> <!-- Adiciona a mensagem de cookie aqui -->
     <main>
         <?php if (!$controller): ?>
             <h1 class="titulo-menu-principal">Menu Principal</h1>
