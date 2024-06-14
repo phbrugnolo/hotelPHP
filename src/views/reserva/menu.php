@@ -45,8 +45,8 @@
                     <tbody>
                         <?php foreach ($dadosReservas as $reserva) : ?>
                             <tr>
-                                <td><?= $reserva['cliente_id'] ?></td>
-                                <td><?= $reserva['quarto_id'] ?></td>
+                                <td><?= $reserva['cliente_cpf'] ?></td>
+                                <td><?= $reserva['tipo_quarto'] ?></td>
                                 <td><?= $reserva['data_checkin'] ?></td>
                                 <td><?= $reserva['data_checkout'] ?></td>
                                 <td>

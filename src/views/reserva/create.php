@@ -24,23 +24,14 @@
         </section>
         <section class="container-form">
             <form action="index.php?controller=reserva&action=create" method="post">
-                <label for="cliente_id">Identificador do Cliente</label>
-                <input name="cliente_id" type="text" id="cliente_id" placeholder="Digite o identificador do cliente" required>
-                <label for="quarto_id">Identificador do Quarto</label>
-                <input name="quarto_id" type="text" id="quarto_id" placeholder="Digite o identificador do quarto" required>
+                <label for="cliente_cpf">CPF do Cliente</label>
+                <input name="cliente_cpf" type="text" id="cliente_cpf" placeholder="Digite o identificador do cliente" required>
+                <label for="tipo_quarto">TIPO do Quarto</label>
+                <input name="tipo_quarto" type="text" id="tipo_quarto" placeholder="Digite o identificador do quarto" required>
                 <label for="data_checkin">Data de Checkin</label>
                 <input name="data_checkin" type="date" id="data_checkin" required>
                 <label for="data_checkout">Data de Checkout</label>
                 <input name="data_checkout" type="date" id="data_checkout">
-                <div class="container-radio">
-                    <label for="status">Status da Reserva:</label><br>
-                    <input type="radio" id="pendente" name="status" value="Pendente" checked>
-                    <label for="pendente">Pendente</label><br>
-                    <input type="radio" id="confirmada" name="status" value="Confirmada">
-                    <label for="confirmada">Confirmada</label><br>
-                    <input type="radio" id="cancelada" name="status" value="Cancelada">
-                    <label for="cancelada">Cancelada</label><br>
-                </div>
                 <input name="cadastro" type="submit" class="botao-cadastrar" value="Cadastrar Reserva" />
             </form>
         </section>

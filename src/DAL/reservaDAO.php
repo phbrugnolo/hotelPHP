@@ -7,9 +7,9 @@
         {
             try {
                 $pdo = Database::conectar();
-                $sql = "INSERT INTO reservas (quarto_id, cliente_id, data_checkin, data_checkout, status) VALUES (?,?,?,?,?)";
+                $sql = "INSERT INTO reservas (clinte_cpf, tipo_quarto, data_checkin, data_checkout) VALUES (?,?,?,?,?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$reserva->quarto_id, $reserva->cliente_id, $reserva->data_checkin, $reserva->data_checkout, $reserva->status]);
+                $statement->execute([$reserva->clinte_cpf, $reserva->tipo_quarto, $reserva->data_checkin, $reserva->data_checkou]);
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
             }
@@ -45,9 +45,9 @@
         {
             try {
                 $pdo = Database::conectar();
-                $sql = "UPDATE reservas SET quarto_id = ?, cliente_id = ?, data_checkin = ?, data_checkout = ?, status = ? WHERE id = ?";
+                $sql = "UPDATE reservas SET clinte_cpf = ?, tipo_quarto = ?, data_checkin = ?, data_checkout = ? WHERE id = ?";
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$reserva->quarto_id, $reserva->cliente_id, $reserva->data_checkin, $reserva->data_checkout, $reserva->status, $reserva->id]);
+                $statement->execute([$reserva->clinte_cpf, $reserva->tipo_quarto, $reserva->data_checkin, $reserva->data_checkout, $reserva->status, $reserva->id]);
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
             }

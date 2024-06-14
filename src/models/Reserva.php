@@ -2,17 +2,15 @@
 
     class Reserva{
         public function __construct(private int $id, 
-        private int $quarto_id, 
-        private int $cliente_id, 
+        private string $cliente_cpf, 
+        private string $tipo_quarto, 
         private string $data_checkin, 
-        private string $data_checkout, 
-        private string $status){
+        private string $data_checkout){
             $this->id = $id;
-            $this->quarto_id = $quarto_id;
-            $this->cliente_id = $cliente_id;
+            $this->quarto_id = $cliente_cpf;
+            $this->tipo_quarto = $tipo_quarto;
             $this->data_checkin = DateTime::createFromFormat('d/m/Y', $data_checkin);
             $this->data_checkout = $data_checkout;
-            $this->status = $status;
         }
 
         public function __get($propriedade)

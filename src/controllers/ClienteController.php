@@ -17,10 +17,15 @@ class ClienteController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nome = trim($_POST['nome']);
+            $cpf = trim($_POST['cpf']);
             $telefone = trim($_POST['telefone']);
 
             if (empty($nome)) {
                 $errors[] = "O nome é obrigatório.";
+            }
+
+            if (empty($cpf)) {
+                $errors[] = "O CPF é obrigatório.";
             }
 
             if (empty($telefone)) {
@@ -31,6 +36,7 @@ class ClienteController
                 $cliente = new Cliente(
                     0, // O ID será gerado pelo banco de dados
                     $nome,
+                    $cpf,
                     $telefone
                 );
                 $this->clienteDao->criar($cliente);
@@ -50,6 +56,7 @@ class ClienteController
             $cliente = new Cliente(
                 $id,
                 $_POST['nome'],
+                $_POST['cpf'],
                 $_POST['telefone']
             );
             $this->clienteDao->atualizar($cliente);

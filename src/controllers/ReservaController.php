@@ -16,11 +16,10 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $reserva = new Reserva(
                     0, // O ID será gerado pelo banco de dados
-                    $_POST['quarto_id'],
-                    $_POST['cliente_id'],
+                    $_POST['cliente_cpf'],
+                    $_POST['tipo_quarto'],
                     $_POST['data_checkin'],
-                    $_POST['data_checkout'],
-                    $_POST['status']
+                    $_POST['data_checkout']
                 );
                 var_dump($_POST);
                 $this->reservaDao->criar($reserva);
@@ -35,11 +34,10 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $reserva = new Reserva(
                     $id,
-                    $_POST['quarto_id'],
-                    $_POST['cliente_id'],
+                    $_POST['cliente_cpf'],
+                    $_POST['tipo_quarto'],
                     $_POST['data_checkin'],
-                    $_POST['data_checkout'],
-                    $_POST['status']
+                    $_POST['data_checkout']
                 );
                 $this->reservaDao->atualizar($reserva);
                 header('Location: index.php?controller=reserva&action=list');
