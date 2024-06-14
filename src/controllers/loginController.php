@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($admin) && password_verify($senha, $admin['senha'])) {
         $_SESSION['admin'] = $admin['email'];
         header('Location: /src/index.php');
-        var_dump($_SESSION['admin']);
         die();
         exit();
     } else {

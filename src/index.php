@@ -1,17 +1,30 @@
 <?php
-    session_start();
+session_start();
 
-    require_once 'controllers/quartoController.php';
-    require_once 'controllers/ClienteController.php';
-    require_once 'controllers/ReservaController.php';
+require_once 'controllers/quartoController.php';
+require_once 'controllers/ClienteController.php';
+require_once 'controllers/ReservaController.php';
+require_once 'DAL/Database.php';
 
-    if (!isset($_SESSION['admin'])) {
-        header('Location: /src/views/auth/login.php');
-        exit();
-    }
+if (!isset($_SESSION['admin'])) {
+    header('Location: /src/views/auth/login.php');
+    exit();
+}
 
-    $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
-    $action = isset($_GET['action']) ? $_GET['action'] : null;
+$controller = isset($_GET['controller']) ? $_GET['controller'] : null;
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+
+try {
+    $pdo = Database::conectar();
+} catch (PDOException $e) {
+    die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+}
+
+$totalQuartos = $pdo->query("SELECT COUNT(*) FROM quartos")->fetchColumn();
+$totalClientes = $pdo->query("SELECT COUNT(*) FROM clientes")->fetchColumn();
+$totalReservas = $pdo->query("SELECT COUNT(*) FROM reservas")->fetchColumn();
+
+$quartoAleatorio = $pdo->query("SELECT * FROM quartos ORDER BY RAND() LIMIT 1")->fetch(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -38,6 +51,25 @@
                 <li><a href="index.php?controller=reserva&action=menu">Ver Reservas</a></li>
                 <li><a href="/src/controllers/logoutController.php">Logout</a></li>
             </ul>
+            <div class="container-estatisticas">
+                <h2>Estatísticas</h2>
+                <p>Total de Quartos: <?php echo $totalQuartos; ?></p>
+                <p>Total de Clientes: <?php echo $totalClientes; ?></p>
+                <p>Total de Reservas: <?php echo $totalReservas; ?></p>
+            </div>
+            <div class="container-quarto-aleatorio">
+                <h2>Quarto em Destaque</h2>
+                <?php if ($quartoAleatorio): ?>
+                    <div class="container-itens">
+                        <img src="../img/<?php echo $quartoAleatorio['imagem']; ?>" alt="Imagem do Quarto">
+                        <p><?php echo $quartoAleatorio['tipo']; ?></p>
+                        <p><?php echo $quartoAleatorio['descricao']; ?></p>
+                        <p>Preço: R$ <?php echo number_format($quartoAleatorio['preco'], 2, ',', '.'); ?></p>
+                    </div>
+                <?php else: ?>
+                    <p>Nenhum quarto disponível.</p>
+                <?php endif; ?>
+            </div>
         <?php else: ?>
             <?php
             switch ($controller) {

@@ -235,3 +235,34 @@ ul li a:hover {
     justify-content: space-around;
     width: 50%;
 }
+
+.container-resumo {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.container-estatisticas {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.container-estatisticas p {
+    font-size: 20px;
+    color: #EBC181;
+}
+
+.container-quarto-aleatorio {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.container-quarto-aleatorio h2 {
+    color: #EBC181;
+}
+
+.container-quarto-aleatorio .container-itens {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
