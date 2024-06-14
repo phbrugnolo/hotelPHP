@@ -1,30 +1,29 @@
 <?php
-    session_start();
+session_start();
 
-    require_once '../DAL/adminDao.php';
+require_once '../DAL/adminDao.php';
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        
-        $adminDAL = new adminDao();
-        $admin = null;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-        try { 
-            $admin = $adminDAL->getAdminByEmail($email);
-        } catch (PDOException $e) {
-            var_dump($e->getMessage());
-        }
+    $adminDAL = new adminDao();
+    $admin = null;
 
-        if (isset($admin) && password_verify($senha, $admin['senha'])) {
-            $_SESSION['admin'] = $admin['email'];
-            header('Location: /src/index.php');
-            var_dump($_SESSION['admin']);
-            die();
-            exit();
-        } else {
-            header('Location: /src/views/auth/login.php?error=1');
-            exit();
-        }
+    try {
+        $admin = $adminDAL->getAdminByEmail($email);
+    } catch (PDOException $e) {
+        var_dump($e->getMessage());
     }
-?>
+
+    if (isset($admin) && password_verify($senha, $admin['senha'])) {
+        $_SESSION['admin'] = $admin['email'];
+        header('Location: /src/index.php');
+        var_dump($_SESSION['admin']);
+        die();
+        exit();
+    } else {
+        header('Location: /src/views/auth/login.php?error=1');
+        exit();
+    }
+}

@@ -41,12 +41,11 @@ class ClienteController
                 );
                 $this->clienteDao->criar($cliente);
                 header('Location: index.php?controller=cliente&action=menu');
-                exit(); // Certifique-se de sair após o redirecionamento
+                exit();
             }
+        } else {
+            include './views/cliente/create.php';
         }
-
-        // Inclua a view com a lista de erros, se houver
-        include './views/cliente/create.php';
     }
 
 
