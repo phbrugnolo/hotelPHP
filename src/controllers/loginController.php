@@ -27,5 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /src/views/auth/login.php?error=1');
         exit();
     }
+    
 }
 ?>
