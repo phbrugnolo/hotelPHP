@@ -18,11 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($admin) && password_verify($senha, $admin['senha'])) {
         $_SESSION['admin'] = $admin['email'];
-        setcookie('username', $admin['email'], time() + (86400 * 30), "/");
+        if (!isset($_COOKIE['username'])) {
+            setcookie('username', $admin['email'], time() + (86400 * 30), "/");
+        }
         header('Location: /src/index.php');
         exit();
     } else {
         header('Location: /src/views/auth/login.php?error=1');
         exit();
     }
+    
 }
