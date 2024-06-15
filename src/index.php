@@ -12,9 +12,9 @@ if (!isset($_SESSION['admin'])) {
 }
 
 function verificarCookie() {
-    if (!isset($_SESSION['admin']) && isset($_COOKIE['username'])) {
+    if (isset($_COOKIE['username'])) {
         echo '<div class="cookie-message">Bem-vindo de volta, ' . htmlspecialchars($_COOKIE['username']) . '!</div>';
-    } else if (!isset($_SESSION['admin'])) {
+    } else {
         echo '<div class="cookie-message">Bem-vindo, visitante! <a href="/src/views/auth/login.php">Faça login</a></div>';
     }
 }

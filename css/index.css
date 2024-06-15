@@ -282,7 +282,7 @@ ul li a:hover {
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
